@@ -75,7 +75,7 @@ def getReviewer(curlResponse)
 {
    def reviewInfo = new JsonSlurper().parseText(curlResponse)
    return reviewInfo.participants
-   }
+   
 }
 
 def upVote(id) 
