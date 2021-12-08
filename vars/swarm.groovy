@@ -72,7 +72,9 @@ def getReviewAuthor(curlResponse)
 def getReviewer(curlResponse)
 {
    def reviewInfo = new JsonSlurper().parseText(curlResponse)
-   return reviewInfo.participants[0]
+   reviewInfo.participants.each{
+    key, value -> return key
+   }
 }
 
 def upVote(id) 
