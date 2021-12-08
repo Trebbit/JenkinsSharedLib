@@ -74,7 +74,8 @@ def getReviewAuthor(curlResponse)
 def getReviewer(curlResponse)
 {
    def reviewInfo = new JsonSlurper().parseText(curlResponse)
-   return reviewInfo.participants
+   reviewInfo.participants.each {
+   return it
    
 }
 
