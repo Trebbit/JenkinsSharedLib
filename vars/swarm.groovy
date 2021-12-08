@@ -60,7 +60,7 @@ def createReview(id, participants = null)
 def getReviewID(curlResponse)
 {
    def reviewInfo = new JsonSlurper().parseText(curlResponse)
-   if(reviewInfo.review.id == null)
+   if(reviewInfo.review == null)
       return "0"
    return reviewInfo.review.id
 }
