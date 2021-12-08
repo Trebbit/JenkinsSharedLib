@@ -63,7 +63,7 @@ def getShelvedChangelists()
 {
    def p4s = p4(credential: p4Info.credential, workspace: manualSpec(charset: 'none', cleanup: false, name: p4Info.workspace, pinHost: false, spec: clientSpec(allwrite: true, backup: true, changeView: '', clobber: false, compress: false, line: 'LOCAL', locked: false, modtime: false, rmdir: false, serverID: '', streamName: '', type: 'WRITABLE', view: p4Info.viewMapping)))
    def changeLists = p4s.run('changes', '-s', 'shelved')
-   return "test"
+   return changeLists
 }
 
 def getCurrChangelistDescr()
