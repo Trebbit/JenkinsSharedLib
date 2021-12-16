@@ -87,7 +87,7 @@ def getShelvedChangelistsFil(dir,numberOfChangelists)
    {
       if(!getChangelistDescr(item.change).contains("[NoShelve]"))
       {
-         filteredChangeList.Add(item)
+         filteredChangeList += item
       }
    }
    
