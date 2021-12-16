@@ -89,6 +89,7 @@ def getShelvedChangelistsFil(dir,numberOfChangelists)
       {
          filteredChangeList += item
       }
+      return getChangelistDescr(item.change)
    }
    
    return filteredChangeList
