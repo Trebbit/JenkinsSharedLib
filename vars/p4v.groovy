@@ -64,6 +64,18 @@ def getChangelistDescr(id)
    return desc
 }
 
+
+def getChangelistDescrWithLength(id,maxLength)
+{
+   def desc =getChangelistDescr(id)
+   if(desc.length()> maxLength)
+   {
+      desc = desc.substring(0,maxLength)
+   }
+   return desc
+}
+
+
 def getShelvedChangelists(dir)
 {
    def p4s = p4(credential: p4Info.credential, workspace: manualSpec(charset: 'none', cleanup: false, name: p4Info.workspace, pinHost: false, spec: clientSpec(allwrite: true, backup: true, changeView: '', clobber: false, compress: false, line: 'LOCAL', locked: false, modtime: false, rmdir: false, serverID: '', streamName: '', type: 'WRITABLE', view: p4Info.viewMapping)))
