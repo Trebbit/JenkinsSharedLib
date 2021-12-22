@@ -28,9 +28,9 @@ def getParticipantsOfGroup(groupName, groups)
    return participants
 }
 
-def getParticipantOfSameGroup(name, groups)
+def getParticipantOfSameGroup(name, groups,defaultParticipant)
 {
-   def participant = ""
+   def participant = defaultParticipant
    def groupsParsed = new JsonSlurper().parseText(groups)
 
    groupsParsed.groups.each { group ->
@@ -48,7 +48,7 @@ def getParticipantOfSameGroup(name, groups)
       }
       }
    }
-
+   
    return participant
 }
 
