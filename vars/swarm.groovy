@@ -34,7 +34,8 @@ def getParticipantsOfSameGroup(name, groups)
    def groupsParsed = new JsonSlurper().parseText(groups)
 
    groupsParsed.groups.each { group ->
-      
+     if(group.type == "role")
+      {
       if (group.swarmID.contains(name))
       {
          def r = new Random()
@@ -43,6 +44,7 @@ def getParticipantsOfSameGroup(name, groups)
          {
             participant =  getParticipantsOfSameGroup(name, groups)
          }
+      }
       }
    }
 
