@@ -30,7 +30,7 @@ def getParticipantsOfGroup(groupName, groups)
 
 def getParticipantOfSameGroup(name, groups)
 {
-   def participant = []
+   def participant = ""
    def groupsParsed = new JsonSlurper().parseText(groups)
 
    groupsParsed.groups.each { group ->
