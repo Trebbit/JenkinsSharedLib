@@ -51,6 +51,29 @@ def getParticipantOfSameGroup(name, groups,defaultParticipant)
    
    return participant
 }
+def getReviewerOfSameGroup(name, groups,defaultParticipant)
+{
+   def participant = defaultParticipant
+   def groupsParsed = new JsonSlurper().parseText(groups)
+
+   groupsParsed.groups.each { group ->
+     if(group.type == "role")
+      {
+      if (group.swarmID.contains(name))
+      {
+         def r = new Random()
+         participant = group.reviewers.get(r.nextInt(group.reviewers.size()))
+         while(participant == name)
+         {
+            participant =  group.reviewers.get(r.nextInt(group.reviewers.size()))
+         }
+         return participant
+      }
+      }
+   }
+   
+   return participant
+}
 
 def getParticipantsOfGroups(groupNames, groups)
 {
