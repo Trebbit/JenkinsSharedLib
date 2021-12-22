@@ -40,7 +40,7 @@ def getParticipantOfSameGroup(name, groups)
       {
          def r = new Random()
          participant = group.swarmID.get(r.nextInt(group.swarmID.size()))
-         While(participant == name)
+         while(participant == name)
          {
             participant =  group.swarmID.get(r.nextInt(group.swarmID.size()))
          }
