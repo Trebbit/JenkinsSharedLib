@@ -28,6 +28,27 @@ def getParticipantsOfGroup(groupName, groups)
    return participants
 }
 
+def getParticipantsOfSameGroup(name, groups)
+{
+   def participant = []
+   def groupsParsed = new JsonSlurper().parseText(groups)
+
+   groupsParsed.groups.each { group ->
+      
+      if (group.swarmID.contains(name))
+      {
+         def r = new Random()
+         participant = group.swarmID.get(r.nextInt(group.swarmID.size()))
+         if(participant == name)
+         {
+            participant =  getParticipantsOfSameGroup(name, groups)
+         }
+      }
+   }
+
+   return participant
+}
+
 def getParticipantsOfGroups(groupNames, groups)
 {
    def participantsArray = []
