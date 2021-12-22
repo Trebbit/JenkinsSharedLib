@@ -42,8 +42,9 @@ def getParticipantOfSameGroup(name, groups)
          participant = group.swarmID.get(r.nextInt(group.swarmID.size()))
          if(participant == name)
          {
-            //participant =  getParticipantsOfSameGroup(name, groups)
+            participant =  getParticipantsOfSameGroup(name, groups)
          }
+         return participant
       }
       }
    }
