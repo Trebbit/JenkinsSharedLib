@@ -42,11 +42,6 @@ def runAllTests(config = "Development", platform = "Win64")
    runAutomationCommand("RunAll Now", config, platform)
 }
 
-def runStandardTests(config = "Development", platform = "Win64")
-{
-   runAutomationCommand("RunFilter Now Standard", config, platform)
-}
-
 def runNamedTests(testNames, config = "Development", platform = "Win64")
 {
    def testNamesJoined = testNames.join("+");
