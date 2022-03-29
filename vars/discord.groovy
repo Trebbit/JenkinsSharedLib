@@ -122,7 +122,10 @@ def createMessage(title, messageColor, fields, footer = null, content = null)
 
    return JsonOutput.toJson(body).replace('"','""')
 }
-
+def sendMessageL(message, webhook)
+{
+   sh(label: "Send Discord Message", script: "curl -X POST -H \"Content-Type: application/json\" -d \"${message}\" ${webhook}")
+}
 def sendMessage(message, webhook)
 {
    bat(label: "Send Discord Message", script: "curl -X POST -H \"Content-Type: application/json\" -d \"${message}\" ${webhook}")
